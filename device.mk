@@ -27,3 +27,17 @@ PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.model ro.sf.lcd_density
 include $(LOCAL_PATH)/product/*.mk
 
 $(call inherit-product-if-exists, vendor/yu/tomato/tomato-vendor.mk)
+
+# VoLte
+
+# IMS
+PRODUCT_PACKAGES += \
+    IMSEnabler \
+    init.qti.ims.sh \
+    imscmlibrary \
+    imssettings \
+    ims
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/ims/imscm.xml:system/etc/permissions/imscm.xml \
+    $(LOCAL_PATH)/configs/ims/qti_permissions.xml:system/etc/permissions/qti_permissions.xml
